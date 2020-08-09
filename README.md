@@ -1,0 +1,2 @@
+# OneScriptLang
+OneScript Language
