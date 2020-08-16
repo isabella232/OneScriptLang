@@ -8,7 +8,7 @@ Type | Description
 `categorical` | A multiple choice single answer and multiple choice multiple answer type question.
 `date` | The ability to ask a question that refers to a date and/or time.
 `image` | The ability to store media in response to a question.
-`struct` | A structure containing a combination of field types from the above list.
+`block` | A structure containing a combination of field types from the above list.
 `page` | This field type supports the idea of structuring a number of of the above field types into a page for presentation that responds to the navigation of the page it may be displayed on.
 `loop` | A field type that combines the other field types into a set of categories or numerical loops so as to ask the same questions a number of times.
 

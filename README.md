@@ -42,7 +42,7 @@ A virtual machine based on a combination of the Java Virtual Machine and the Dig
 It provides a combination instruction processing with operand specification on a stack based machine
 
 ### Macro Language
-In order to help with the testing of the OneScript model the Macro language is also provided used to generate object for the Linker that are more directly associated with the Macro Virtual Machine.
+In order to help with the testing of the OneScript model the [Macro Language](docs/Macro.md) is also provided used to generate object for the Linker that are more directly associated with the OnePoint Global Virtual Machine.
 
 ## Linker
 A linker of objects created by the Macro compiler and OneScript compiler into an executable suitable for the Macro Virtual
