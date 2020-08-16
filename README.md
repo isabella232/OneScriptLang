@@ -21,14 +21,18 @@ The OneScript language is compiled into an object library that is based on a lan
 
 ## Interview Model
 The interview model is a part of the OneScript language that allows you to create the structure to ask and store questions for a survey. There are a number of types of questions:
-1. Informational - no question asked!
-1. String - a basic free text question.
-1. Categorical - a single or multiple choice type question.
-1. Date - a date and time type question.
-1. Image - a media type question.
-1. Block - a group of questions to be plugged into a single question.
-1. Page - a group of questions for a page.
-1. Loop - a group of questions that can be turned into a grid.
+
+Type | Description
+---- | -----------
+Informational | no question asked!
+String | a basic free text question.
+Categorical | a single or multiple choice type question.
+Date | a date and time type question.
+Image | a media type question.
+Block | a group of questions to be plugged into a single question.
+Page | a group of questions for a page.
+Loop | a group of questions that can be turned into a grid.
+
 
 It is backed up by a set of classes that support an interview (a single survey) experience both at the scripting level and the presentation level depending on the platform.
 

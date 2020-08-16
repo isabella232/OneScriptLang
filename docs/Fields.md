@@ -4,8 +4,8 @@ A key feature of OneScript is to define questions and answers structures to be s
 Type | Description
 ---- | -----------
 `info` | An information field type that is just used to present a question that expects no response.
-`text` | A test question to store single words, phrases and or general free text.
-`enumerator` | A multiple choice single answer and multiple choice multiple answer type question.
+`string` | A test question to store single words, phrases and or general free text.
+`categorical` | A multiple choice single answer and multiple choice multiple answer type question.
 `date` | The ability to ask a question that refers to a date and/or time.
 `image` | The ability to store media in response to a question.
 `struct` | A structure containing a combination of field types from the above list.
