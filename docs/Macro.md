@@ -180,21 +180,7 @@ the code of a method. For example:
     iload temp
     ireturn
 ```
-#### Instructions
-Code instructions are made up of an operator and operands. For example
-```
-    iload #0
-```
-The above shows the operator to load an integer. This particular operator expects only one oeprand and in this instance 
-is is the immediate value '0'.
-
-Instructions usually denote the type of data it is operating upon (int, boolean, etc.) with a prefix of the type. For example:
-```
-    iload #0                // Refers to an integer to be loaded onto the stack
-    bload #true             // Refers to a boolean value to be loaded onto the stack
-    sstore localStringValue // Refers to the string on the stack to be stored in the 
-                            // table declaration referenced by localStringValue
-```
+For more information on the instructions please [check here](Instructions.md).
 
 The OneScript virtual Machine is a stack based virtual machine and instructions usually work with pushing or 
 popping values off the stack.
@@ -202,7 +188,7 @@ For a full list of instructions please [Click Here](MacroInstructions.md).
 
 #### Operands
 Operands are the parameters for instructions. They can be one of the following:
-* Immediate - denited by prefixing the hash ('#') to the value and refers to constant value or an expression that can
+* Immediate - denoted by prefixing the hash ('#') to the value and refers to constant value or an expression that can
 result in a constant value.
 * Reference - a reference to a declaration in the Macro source code or an external value to be found in the imported libraries.
 

@@ -20,5 +20,11 @@ A player is responsible for the presentation of a question and the collection of
 
 Players can be plugged into the virtual machine and tailored to the target platform.
 
+### Threads
+When a virtual machine is started the main thread is responsible for processing the survey. [OneScript](OneScript.md) has the ability to handle errors and process events. It also follows that the virtual machine has the ability to process errors by creating 
+
+
+### Instruction Set
+A 
 
 

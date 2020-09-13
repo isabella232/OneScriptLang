@@ -215,6 +215,23 @@ catch(Exception e) {
     ...
 }
 ```
-It is possible to provide a set of errors that 
+
+It is possible to provide a set of catch clauses for different errors. For example:
+```
+try {
+    if (a == 1) {
+        ...
+    }
+}
+catch(NullParameterException ne) {
+
+}
+catch(Exception e) {
+    ...
+}
+```
+
+Ultimately if the errors are not met then the error falls through to the next error handler in the stack.
+
 
 

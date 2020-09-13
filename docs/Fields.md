@@ -37,8 +37,18 @@ welcome "Welcome to the interview" info;
 For questions that expect a response it is possible to set up what you would like to display as the initial answer for the respondent to see and what we should set the answer to if they do not select anything. For example:
 
 ```
-name "What is your name?" text initial()
+name "What is your name?" text initial("Doug")
 ```
 
-## 
+
+
+## Field Definitions
+
+### Info Field
+The info field is for display onlyy and not designed to collect an answer from the participant. For example:
+
+```
+hello "How are you" info;
+```
+
 
