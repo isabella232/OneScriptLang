@@ -59,8 +59,8 @@ String constants are unicode with the ability to add encoded values from the fol
 
 ## Directives
 
-Macro programs are defined through the Macro langauge which is case sensitive. It supports each keyword and associated
-operator can be seperated with whitespace. The following can be considered to be whitespace:
+Macro programs are defined through the Macro language which is case sensitive. It supports each keyword and associated
+operator can be separated with whitespace. The following can be considered to be whitespace:
 * `Space`
 * `Tab`
 * `//` followed by a comment
@@ -83,7 +83,7 @@ Directive | Description
 ### .import
 In order to ensure the Macro compiler understands where to search for external references.
 These references can refer to one of the following:
-* Classes, methods, constants and enumerators in a DLL declared in the Macro system configuratiuon.
+* Classes, methods, constants and enumerators in a DLL declared in the Macro system configuration.
 * Classes, table entries declared in other pre-compiled objects found in an opgo (OneScript object) files.
 
 ```
@@ -105,16 +105,16 @@ The `.table` directive can be used either at the top level along side other dire
 after a `.method` directive that implies the data declarations are local to the method.
 
 #### Data Declaratives
-Data declaratvies must take the following form:
+Data declaratives must take the following form:
 ```
 [ modifier ] data-type ident [ = expression ]
 ```
-The `modfifier` can be any one of the following:
+The `modifier` can be any one of the following:
 
 Name | Description
 ---- | -----------
 `global` | A global data declarative means that it is available for external libriaries to see.
-`local` | A local data declarative means that it is avilable for either the local library or the method depdning where the table is defined.
+`local` | A local data declarative means that it is avilable for either the local library or the method depending where the table is defined.
 
 By default a data declarative is said to `local` to its position within the 
 
@@ -130,7 +130,7 @@ Type | Description
 `string` | a string value
 `enum` | an enumerator value
 `object` | an object
-`void` | used to dfine the absence of a value (for example a method with no return value)
+`void` | used to define the absence of a value (for example a method with no return value)
 
 Examples of a data declaration are as follows:
 ```
@@ -158,7 +158,7 @@ The method directive takes the following form:
 ```
 .method data-type ident([data-type { ',' data-type }])
 ```
-It is usually folloowed by an optional table directive and a code directive. For example:
+It is usually followed by an optional table directive and a code directive. For example:
 ```
 .method void Test()
 .table
@@ -168,13 +168,12 @@ It is usually folloowed by an optional table directive and a code directive. For
     ireturn
 ```
 The OneScript virtual machine operates on a stack based processor. When a method is called a 'Call Frame'
-is created and all primiative data-types are passed by value with other value passed by reference.
+is created and all primitive data-types are passed by value with other value passed by reference.
 It is generally recommended that a method be completed with a return type operator to ensure that the 'Call Frame'
 is removed from the 'Call Frame Stack' and control is correctly returned to the called method.
 
 ### .code
-The code directive is used within the method section to declare the code section. It must be followed by insturctions that form
-the code of a method. For example:
+The code directive is used within the method section to declare the code section. It must be followed by instructions that form the code of a method. For example:
 ```
 .code
     iload temp

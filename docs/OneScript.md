@@ -177,7 +177,9 @@ In this example the
 Foreach statements are based on an iterator being implemented by the object be assessed. OneScript has a standard set of properties and methods that allow the `foreach` statement to be to  used.
 
 ```
-Need an example
+foreach (Question question in questions) {
+    question.Ask();
+}
 ```
 
 #### goto Statements

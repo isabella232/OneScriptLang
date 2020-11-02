@@ -102,4 +102,28 @@ To handle subroutines it is possible to call a
 ## Stack Management
 Just in case you want to mange the stack independently of the rest of the instructions set you can also use the `pop` instruction to remove items from the stack.
 
-
+## Error Handling
+It is possible to define error management using the `pushh`, `throw` and `poph` instructions. For examples:
+```
+    ...
+    pushh Exception,x30$,NullException,x40$
+    load questions
+    invokevirtual InitialiseLooping()
+a10$:
+    load questions
+    invokevirtual Next()
+    iffalse a20$
+    load questions
+    invokevirtual GetItem()
+    store question
+    load question
+    invokevirtual Ask()
+    goto a10$
+a20$:
+    ...
+x30$:
+    // general exception
+    
+    
+```
+The `try` instructions
