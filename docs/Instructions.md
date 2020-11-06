@@ -49,8 +49,8 @@ icvtb
 ```
 It is possible to convert types based on the table:
 
-. | bool (b) | int (i) | date (i) | enum (i) | float (f) | string (s)
-- | ---- | --- | ---- | ---- | ----- | ------
+x | bool (b) | int (i) | date (i) | enum (i) | float (f) | string (s)
+--- | ---- | --- | ---- | ---- | ----- | ------
 bool (b) | | x | | ||||
 int (i) | x | | x | x | x | x
 date (d) | | | | |
