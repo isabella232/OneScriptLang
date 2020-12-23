@@ -123,8 +123,10 @@ a20$:
     ...
 x30$:
     // general exception
-    
-    
+    ...
+x40$:
+    // Null exception
+    ...
 ```
 The `pushh` instruction pushes a handler onto the handler task. Thew handler stack operates as a cascading exception handler, so if the error is not picked up by the handler on top of the stack the next handler is used.
 

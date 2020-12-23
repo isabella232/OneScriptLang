@@ -50,17 +50,22 @@ For example:
 * `{a,b1}`
 * `{abc}`
 
+For more information on Enumerators [check here](Enumerators.md).
+
 ### enum Constants
-Enm constants are a wya to using an identifier to reference a constant value rather that placing the constant value everywhere in the code. For example:
+Enum constants (not to be confused with enumerators) are a way to using an identifier to reference a constant value rather that placing the constant value everywhere in the code. For example:
 
 
 ### Keywords
 The following keywords are reserved and may not be used as identifiers:
 
 ```
-bool        break      byte     case     catch     class
-continue    date       datetime default  do        enum
-enumerator  float      for      foreach  goto      if
+audio bool        break       block   byte        case        catch       class
+continue    date        datetime    default     define do          else    enum
+enumerator  false       field   fix       float       for         foreach     global  goto      
+helperfields if          in  int         internal    is  new     nocasedata    null    media    object      page     picture      precision    private     public  ref     return      scale   string      struct
+switch
+throw       time        true      try   typeof    using     while     validation    video void
 THERE ARE MORE...
 ```
 
@@ -233,7 +238,7 @@ catch(Exception e) {
 }
 ```
 
-Ultimately if the errors are not met then the error falls through to the next error handler in the stack.
+Ultimately if the errors are not met then the error falls through to the next error handler in the stack. The catch statement can optional declare a variable that is store at the private method block level.
 
 
 
