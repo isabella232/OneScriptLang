@@ -60,12 +60,17 @@ Enum constants (not to be confused with enumerators) are a way to using an ident
 The following keywords are reserved and may not be used as identifiers:
 
 ```
-audio bool        break       block   byte        case        catch       class
-continue    date        datetime    default     define do          else    enum
-enumerator  false       field   fix       float       for         foreach     global  goto      
-helperfields if          in  int         internal    is  new     nocasedata    null    media    object      page     picture      precision    private     public  ref     return      scale   string      struct
-switch
-throw       time        true      try   typeof    using     while     validation    video void
+audio       bool         break       block       byte        case        
+catch       class        continue    date        datetime    default
+define      do           else        enum        enumerator  false
+field       fix          float       for         foreach     global
+goto        helperfields if          in          int         internal
+is          new          nocasedata  null        media       object
+page        picture      precision   private     public      ref
+return      scale        string      struct      switch      throw
+time        true         try         typeof      using       while    
+validation  video        void
+
 THERE ARE MORE...
 ```
 
