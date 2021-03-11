@@ -8,6 +8,7 @@ Type | Description
 `float` | A floating value.
 `string` | A test question to store single words, phrases and or general free text.
 `categorical` | A multiple choice single answer and multiple choice multiple answer type question.
+`define` | A like the categorical field, but reuseable many times in place of a categorical list.
 `date` | The ability to ask a question that refers to a date and/or time.
 `image` | The ability to store media in response to a question.
 `struct` | A structure containing a combination of field types from the above list.
@@ -41,16 +42,16 @@ For questions that expect a response it is possible to set up what you would lik
 ```
 name "What is your name?" text initial("Doug")
 ```
-
-
-
 ## Field Definitions
 
 ### Info Field
-The info field is for display onlyy and not designed to collect an answer from the participant. For example:
+The info field is for display only and not designed to collect an answer from the participant. For example:
 
 ```
 hello "How are you" info;
 ```
+
+### Text Field
+The text field is
 
 

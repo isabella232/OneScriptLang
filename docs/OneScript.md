@@ -4,6 +4,11 @@
 
 This provides a basic overview of the OneScript language and how it relates to the Macro Virtual Machine.
 
+In reverence to all other languages OneScript offers the same capabilities as many other languages:
+```
+Console.Write("Hello World");
+```
+
 ## General Terms
 These general terms refer to all elements of OneScript
 * `ident` - refers to an identity that can be any underscore or alpha, followed by any underscore or alphanumeric.
@@ -13,7 +18,7 @@ For example, `init` and `OneScript.Core.DateTime`.
 * `string` - string values.
 * `date` - date and/or time values.
 * `enumerator` - enumerator value is a special collection of values that can be used with the categorical or multiple choice type questions in a survey.
-* `enum` - a enum value.
+* `enum` - a value type defined by a set of named constants of the underlying integral numeric type.
 
 ### Numeric Constants
 Numerical constants can be in decimal, hexidecimal, binary, octal or float point. 
@@ -55,25 +60,45 @@ For more information on Enumerators [check here](Enumerators.md).
 ### enum Constants
 Enum constants (not to be confused with enumerators) are a way to using an identifier to reference a constant value rather that placing the constant value everywhere in the code. For example:
 
+```
+enum Fluid {
+    Water,
+    Coke,
+    Milk,
+    Tea,
+    Coffee
+}
+```
 
 ### Keywords
 The following keywords are reserved and may not be used as identifiers:
 
 ```
-audio       bool         break       block       byte        case        
-catch       class        continue    date        datetime    default
-define      do           else        enum        enumerator  false
-field       fix          float       for         foreach     global
-goto        helperfields if          in          int         internal
-is          new          nocasedata  null        media       object
-page        picture      precision   private     public      ref
-return      scale        string      struct      switch      throw
-time        true         try         typeof      using       while    
+audio       bool         break
+block       byte         case        
+catch       class        continue    
+date        datetime     default
+define      do           else
+enum        enumerator   false
+field       fix          float
+for         foreach      global
+goto        helperfields if
+in          int          internal
+is          new          nocasedata
+null        media        object
+page        picture      precision
+private     public       ref
+return      scale        string
+struct      switch       throw
+time        true         try
+typeof      using        while    
 validation  video        void
 
 THERE ARE MORE...
 ```
 
+### Basic Data Types
+The following basic data types are built into OneScript 
 ### Objects
 `object` refer to instances of classes that cannot be defined by the base types (bool, int, float, date, enum and string).
 
@@ -84,21 +109,38 @@ THERE ARE MORE...
 `null` refer to a reference that has no value. This can be used to detect whether a value has been instantiated or not. If an object has not yet been instantiated then it is automatically set to null.
 
 ### String Constants
-String constants are unicode with the ability to add encoded values from the following list:
+String constants are delimited with a double quote `"`. String constants are unicode with the ability to add encoded values from the following list:
 * `\n` - new line
 * `\r` - return 
 * `\t` - tab
+* `\\` - back slash
+* `\"` - double quote
+* `""` - double quote
 
 ## Program Structure
-OneScript is a light object orientated language. This means it does not support inheritance within its own language, but does support it through the objects it can create.
+OneScript is a "Light Object Orientated Language". This means it does not support inheritance within its own language, but does support it through the objects it can create from libraries.
 
 Basic statements and declarations in a OneScript program are added to a "Main" class if they are not declared explicitly within a class. The "Main" class is always used as the entry point to a OneScript Virtual Machine program.
 
 ### Declarations
 Basic declarations take the following form:
-* `int a = 0;`
-* `string b;`
-* `bool c, d;`
+```
+int a = 0;
+string b;
+bool c, d;
+float f = 0.2;
+```
+
+### Arrays
+Declare arrays using brackets (`[]`), and create the array using the `new` statement.
+```
+int[] a = new int[3];
+```
+
+Access the array elements using brackets:
+```
+a[0] = 2;
+```
 
 ### Statements
 Statements are used to control the flow of a program and manipulate data defined in declarations.
@@ -109,17 +151,14 @@ Console.PrintLine(hw);
 ```
 
 ### Blocks
-Statements can be grouped into blocks by using the `{` and `}` braces.
-This allows statements to refer to a group of statements rathen just one.
-For example:
+Statements can be grouped into blocks by using the `{` and `}` braces. This allows statements to refer to a group of statements rather just one. For example:
 ```
 if (a == 1) {
     a = 2;
     a = a + 1;
 }
 ```
-In some instances the a single statement can be used in place of a block.
-For example:
+In some instances the a single statement can be used in place of a block. For example:
 ```
 if (a == 1)
     a = 2;
@@ -181,7 +220,9 @@ for (int i = 0; i < 5; i++) {
     Console.Write(i);
 }
 ```
-In this example the 
+In this example the `int i = 0` is the declaration initializer, the `i < 5` is the test and the `i++` is the changer.
+
+The `break` statement will force the loop to finish and move onto the next statement. The `continue` statement will force the process to jump to the next changer statement continuing the loop.
 
 #### foreach Statements
 Foreach statements are based on an iterator being implemented by the object be assessed. OneScript has a standard set of properties and methods that allow the `foreach` statement to be to  used.
@@ -191,6 +232,8 @@ foreach (Question question in questions) {
     question.Ask();
 }
 ```
+
+The `break` statement will force the loop to finish and move onto the next statement. The `continue` statement will force the process to jump to the next changer statement continuing the loop.
 
 #### goto Statements
 Goto statements rely on a label. They are basic representation of branching to a new statement. The following is an example:
@@ -210,7 +253,13 @@ exit:
 #### return Statements
 Return statements are used to exit methods and return to the call include method. 
 ```
-Need some examples
+void CheckStatus(int status) {
+    if (status == 1) {
+        return;
+    }
+
+    question.Ask();
+}
 ```
 
 ### Error Handling
@@ -245,5 +294,46 @@ catch(Exception e) {
 
 Ultimately if the errors are not met then the error falls through to the next error handler in the stack. The catch statement can optional declare a variable that is store at the private method block level.
 
+It is possible to force an error with the `throw` statement. for example:
+```
+if (a == 0) {
+    throw new Exception("There is a problem with a");
+}
+```
+
+### Snapshots
+Snapshots are a particular feature of OneScript that supports the ability to move back and forth in an application by defining a `snapshot` of the application to jump back to later. 
+```
+    save snapshot "q1";
+    q1.Ask();
+    save snapshot "q2";
+    q2.Ask();
+    if (q2.Response.Value == null) {
+        restore snapshot "q1";
+    }
+```
+
+A snapshot will hold information about the virtual machine position in the code and the restoration of a snapshot will automatically jump the flow of the application back to the statement directly after the save snapshot statement with the equivalent name.
 
 
+## Fields
+To make OneScript a researchers language it supports the definition of fields that hold the definitions of questions to be asked and results to be stored for analysis. Fields are declared in a field block:
+```
+    fields {
+        catGRCOptIn {   ENU:"<b>Do you have a <u>Genting Rewards Card</u>?</b>", 
+                       ZHA:"您是否持有<u>云尊卡</u>？" } 
+            categorical [1..1] {
+                r01 { ENU:"Yes" , ZHA:"是" } factor (1),
+                r02 { ENU:"No" , ZHA:"否" } factor (2), 
+                - "No Answer" NA factor (99)
+            };
+    }
+```
+A field can describe the options, language and controls to be used in the asking of a question, but is also accessible through the objects (IInterview, IQuestion, ICategory, etc.) automatically generated for OneScript.
+```
+    catGRCOptIn.MustAnswer = false;
+    CatGRCOptIn.Ask();
+```
+When the `Ask` method of a question is used a Snapshot is automatically generated to support the ability to move back and forth through questions. A feature that is supported by DIY Surveys.
+
+For more information on Field please refer to the [Fields Reference](Fields.md)

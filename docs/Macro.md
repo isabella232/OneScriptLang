@@ -2,7 +2,7 @@
 
 > For more information visit the [General index](../README.md)
 
-Macro is the OnePoint Global virtual machine assembly language that maps directly to its machine code.
+Macro is the OneScript virtual machine assembly language that maps directly to its machine code.
 
 ## General Terms
 These general terms refer to all elements of Macro
@@ -15,9 +15,9 @@ For example, `$init` and `OneScript.Core^DateTime`.
 * `enum` - enum value
 
 ### Numeric Constants
-Numerical constants can be in decimal, hexidecimal, binary, octal or float point. These can take the following forms:
+Numerical constants can be in decimal, hexadecimal, binary, octal or float point. These can take the following forms:
 * [ `^D` ]`decimal-value`
-* `^X` `hexadeciaml-value`
+* `^X` `hexadecimal-value`
 * `^B` `binary-value`
 * `^O` `octal-value`
 * `^F` `floating-point-value`
@@ -56,7 +56,6 @@ String constants are unicode with the ability to add encoded values from the fol
 * `\r`
 * `\t`
 
-
 ## Directives
 
 Macro programs are defined through the Macro language which is case sensitive. It supports each keyword and associated
@@ -80,6 +79,25 @@ Directive | Description
 `.code` | a code section can only be held within the a method directive section and refers to the Macro code for the method.
 `.end`| refers to the end of the source code and optionally an entry point in the list of methods defined at the top level.
 
+### Program Structure
+Program structure is achieved using directives. A simple application might take the following form:
+
+```
+.using OneScript.Core
+.name Sample
+.table
+    string helloWorld
+.method void G^$Main()
+.code
+    sload "Hello World"
+    store helloWorld
+    lost hellowWorld
+    invokestatic Console.Write(string);
+.end G^Main(0)
+```
+
+It is possible to create applications tht can be run and libraries that can be reused a number of times by Macro applications.
+
 ### .import
 In order to ensure the Macro compiler understands where to search for external references.
 These references can refer to one of the following:
@@ -99,9 +117,7 @@ Linker.
 ```
 
 ### .table
-Macro allows for data declaratives that can later be used in the code. 
-Following a `.table` directive data declaratives and methods can be defined.
-The `.table` directive can be used either at the top level along side other directives or
+Macro allows for data declaratives that can later be used in the code. Following a `.table` directive data declaratives and methods can be defined.The `.table` directive can be used either at the top level along side other directives or
 after a `.method` directive that implies the data declarations are local to the method.
 
 #### Data Declaratives
@@ -132,6 +148,10 @@ Type | Description
 `object` | an object
 `void` | used to define the absence of a value (for example a method with no return value)
 
+The `data-type` can also be a type held within an imported library. For example:
+
+`IException exception`
+
 Examples of a data declaration are as follows:
 ```
 .table
@@ -150,7 +170,7 @@ but not:
 ```
     int temp = 1 * initialValue
 ```
-because `initialValue` cannot be calculated. the expression value is only for simple calculations.
+because `initialValue` cannot be calculated.
 
 ### .method
 The method directive is used to declare a method that can contain it's own table and code sections.
@@ -167,10 +187,8 @@ It is usually followed by an optional table directive and a code directive. For 
     iload temp
     ireturn
 ```
-The OneScript virtual machine operates on a stack based processor. When a method is called a 'Call Frame'
-is created and all primitive data-types are passed by value with other value passed by reference.
-It is generally recommended that a method be completed with a return type operator to ensure that the 'Call Frame'
-is removed from the 'Call Frame Stack' and control is correctly returned to the called method.
+
+The OneScript virtual machine operates on a stack based processor. When a method is called a 'Call Frame' is created and all primitive data-types are passed by value with other value passed by reference. It is generally recommended that a method be completed with a return type operator to ensure that the 'Call Frame' is removed from the 'Call Frame Stack' and control is correctly returned to the called method.
 
 ### .code
 The code directive is used within the method section to declare the code section. It must be followed by instructions that form the code of a method. For example:
@@ -180,10 +198,6 @@ The code directive is used within the method section to declare the code section
     ireturn
 ```
 For more information on the instructions please [check here](Instructions.md).
-
-The OneScript virtual Machine is a stack based virtual machine and instructions usually work with pushing or 
-popping values off the stack.
-For a full list of instructions please [Click Here](MacroInstructions.md).
 
 #### Operands
 Operands are the parameters for instructions. They can be one of the following:
