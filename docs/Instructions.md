@@ -24,7 +24,6 @@ The type can be one of the followings:
 Type | Description
 ---- | -----------
 b | boolean
-by | byte
 d | date/time
 i | integer
 e | enumerator
@@ -53,7 +52,6 @@ It is possible to convert types based on the table:
 x | bool (b) | int (i) | date (i) | enum (i) | float (f) | string (s)
 --- | ---- | --- | ---- | ---- | ----- | ------
 bool (b) | | x | | ||||
-byte (by) | ||||||
 int (i) | x | | x | x | x | x
 date (d) | | | | |
 float (f) | x | x | | | | x
@@ -75,7 +73,13 @@ iffalse | If false then branch
 ifnull | If there is a null value on the stack then branch
 ifnotnull | If there if not a null value on the stack then branch
 
-## Unconditional Instructions
+Each on of the conditional instructions has a boolean push stack version. this is achieved by adding a `b` to the instruction. For example:
+```
+    ifeqb
+```
+The above instruction pops the integer value from the stack and converts it to a boolean value (if value equals zero then push true else push false).
+
+## Unconditional Branching Instructions
 
 ### Goto Instruction
 To support this there is also the `goto` statement that you can use to branch unconditionally to a position in the instructions. For example:
@@ -98,7 +102,10 @@ a20$:
 ```
 
 ### Call and Return
-To handle subroutines it is possible to call a 
+To support code that you want to repeat it is possible to call a method and return from it.
+
+### Calling External Libraries
+To support external libraries it is possible to support
 
 
 ## Stack Management
