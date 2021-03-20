@@ -24,6 +24,7 @@ The type can be one of the followings:
 Type | Description
 ---- | -----------
 b | boolean
+by | byte
 d | date/time
 i | integer
 e | enumerator
@@ -52,6 +53,7 @@ It is possible to convert types based on the table:
 x | bool (b) | int (i) | date (i) | enum (i) | float (f) | string (s)
 --- | ---- | --- | ---- | ---- | ----- | ------
 bool (b) | | x | | ||||
+byte (by) | ||||||
 int (i) | x | | x | x | x | x
 date (d) | | | | |
 float (f) | x | x | | | | x
