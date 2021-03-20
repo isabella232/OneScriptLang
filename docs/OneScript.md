@@ -75,15 +75,14 @@ The following keywords are reserved and may not be used as identifiers:
 
 ```
 audio       bool         break
-block       byte         case        
-catch       class        continue    
-date        datetime     default
-define      do           else
-enum        enumerator   false
-field       fix          float
-for         foreach      global
-goto        helperfields if
-in          int          internal
+byte        case         catch       
+class       continue     date
+default     define       do
+else        enum         enumerator
+false       fields       fix
+float       for          foreach
+global      goto         helperfields
+if          in           int
 is          new          nocasedata
 null        media        object
 page        picture      precision
@@ -250,8 +249,16 @@ exit:
 ...
 ```
 
+#### Methods
+Methods are declared by using parentheses and wa block of statements. For example:
+```
+string greet(string person, string day) {
+    return "Hello" + person + " today is " + day;
+}
+```
+
 #### return Statements
-Return statements are used to exit methods and return to the call include method. 
+Return statements are used to exit methods and return to the call include method. When the end of the statements are reached in a method an automatic return is carried out. 
 ```
 void CheckStatus(int status) {
     if (status == 1) {
@@ -329,7 +336,7 @@ To make OneScript a researchers language it supports the definition of fields th
             };
     }
 ```
-A field can describe the options, language and controls to be used in the asking of a question, but is also accessible through the objects (IInterview, IQuestion, ICategory, etc.) automatically generated for OneScript.
+A field can describe the options, language and controls to be used in the asking of a question, but is also accessible through the object interfaces (IInterview, IQuestion, ICategory, etc.) automatically generated for OneScript.
 ```
     catGRCOptIn.MustAnswer = false;
     CatGRCOptIn.Ask();
@@ -337,3 +344,18 @@ A field can describe the options, language and controls to be used in the asking
 When the `Ask` method of a question is used a Snapshot is automatically generated to support the ability to move back and forth through questions. A feature that is supported by DIY Surveys.
 
 For more information on Field please refer to the [Fields Reference](Fields.md)
+
+## Classes
+Classes are a way of encapsulating methods and properties together. Unlike other languages OneScript classes only have basic capabilities and cannot be inherited or used in polymorphisms.
+```
+    class Shape {
+        public int numberOfSlides = 0;
+        public string SimpleDescription() {
+            return "A shape with " + numberOfSides + " sides";
+        }
+    }
+```
+An instance of a class can be created in the following way:
+```
+    Shape shape = new Shape();
+```

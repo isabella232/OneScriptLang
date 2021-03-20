@@ -12,7 +12,7 @@ For example, `$init` and `OneScript.Core^DateTime`.
 * `numeric` - numeric values can be integers or floating point. 
 * `string` - string values.
 * `date` - date and/or time values.
-* `enum` - enum value
+* `enumerator` - enumerator value is a special collection of values that can be used with the categorical or multiple choice type questions in a survey.
 
 ### Numeric Constants
 Numerical constants can be in decimal, hexadecimal, binary, octal or float point. These can take the following forms:
@@ -36,8 +36,8 @@ A date value can also hold a time in the following form:
 * `hh:mm`
 * `hh:mm:ss`
 
-### enum Constants
-Enum constants can be an alpha optionally followed by an alphanumeric separated by a comma and surrounded by braces.
+### enumerator Constants
+Enumerator constants can be an alpha optionally followed by an alphanumeric separated by a comma and surrounded by braces.
 For example:
 * `{a}`
 * `{a1}`
@@ -144,7 +144,7 @@ Type | Description
 `bool`| a boolean value that be either true or false.
 `date` | a date value
 `string` | a string value
-`enum` | an enumerator value
+`enumerator` | an enumerator value
 `object` | an object
 `void` | used to define the absence of a value (for example a method with no return value)
 
@@ -222,11 +222,3 @@ code that uses it in a different way (However at this point in time there is no 
 ```
     global constant int starter = 0
 ````
-
-
-
-
-
-
-
-
