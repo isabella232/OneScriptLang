@@ -2,7 +2,7 @@
 
 > For more information visit the [General index](../README.md)
 
-Macro is the OneScript virtual machine assembly language that maps directly to its machine code.
+Macro is the Macro virtual machine assembly language that maps directly to its machine code.
 
 ## General Terms
 These general terms refer to all elements of Macro
@@ -91,12 +91,11 @@ Program structure is achieved using directives. A simple application might take 
 .code
     sload "Hello World"
     store helloWorld
-    lost hellowWorld
     invokestatic Console.Write(string);
 .end G^Main(0)
 ```
 
-It is possible to create applications tht can be run and libraries that can be reused a number of times by Macro applications.
+It is possible to create applications tht can be run and libraries that can be reused a number of times by Macro and OneScript applications.
 
 ### .import
 In order to ensure the Macro compiler understands where to search for external references.
@@ -138,13 +137,13 @@ The `data-type` can be any one of the following:
 
 Type | Description
 ---- | -----------
+`bool`| a boolean value that be either true or false.
 `byte` | an unsigned byte value
 `int` | an unsigned integer value
 `float` | a floating point value
-`bool`| a boolean value that be either true or false.
 `date` | a date value
 `string` | a string value
-`enumerator` | an enumerator value
+`enum` | an enumerator value not to be confused with an enum numeric value.
 `object` | an object
 `void` | used to define the absence of a value (for example a method with no return value)
 
@@ -188,7 +187,7 @@ It is usually followed by an optional table directive and a code directive. For 
     ireturn
 ```
 
-The OneScript virtual machine operates on a stack based processor. When a method is called a 'Call Frame' is created and all primitive data-types are passed by value with other value passed by reference. It is generally recommended that a method be completed with a return type operator to ensure that the 'Call Frame' is removed from the 'Call Frame Stack' and control is correctly returned to the called method.
+The Macro virtual machine operates on a stack based processor. When a method is called a 'Call Frame' is created and all primitive data-types are passed by value with other value passed by reference. It is generally recommended that a method be completed with a return type operator to ensure that the 'Call Frame' is removed from the 'Call Frame Stack' and control is correctly returned to the called method.
 
 ### .code
 The code directive is used within the method section to declare the code section. It must be followed by instructions that form the code of a method. For example:
@@ -217,8 +216,7 @@ For declarations it is denoted by the using the modifier `global` or `local` (`l
 ```
 
 ## Constants
-It is possible to define a table declaration as a constant. This allows the compiler to use potentially compile the 
-code that uses it in a different way (However at this point in time there is no affect). For example:
+It is possible to define a table declaration as a constant. This allows the compiler to use potentially compile the code that uses it in a different way (However at this point in time there is no affect). For example:
 ```
     global constant int starter = 0
 ````
