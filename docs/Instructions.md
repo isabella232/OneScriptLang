@@ -49,12 +49,13 @@ icvtb
 ```
 It is possible to convert types based on the table:
 
-x | bool (b) | int (i) | date (i) | enum (i) | float (f) | string (s)
---- | ---- | --- | ---- | ---- | ----- | ------
-bool (b) | | x | | ||||
-int (i) | x | | x | x | x | x
-date (d) | | | | |
-float (f) | x | x | | | | x
+- | bool (b) | byte(by) | int (i) | date (i) | enum (i) | float (f) | string (s)
+- | -------- | -------- | ------- | -------- | -------- | --------- | ----------
+bool (b) | x | x | | || | x
+byte (by) | x | | x |||| x
+int (i) | x | x | | x | x | x | x
+date (d) | | | | | || x
+float (f) | x | x | x | | | | x
 string (s) | x | x | x | x | x | x
 
 
