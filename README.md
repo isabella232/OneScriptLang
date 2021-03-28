@@ -5,9 +5,11 @@ OneScript is friendly for new programmers but also familiar to programmers to c,
 
 The goal of the OneScript project is to provide the best available language that works for researching. The ability to set up a set of questions and define the logic to process those  questions and ultimately store them in a data structure that can be used with the OneScript Data Analytics and/or third party data analytics.
 
-### Macro
-The OneScript language is compiled into an object library that is based on a language called Macro that can be translated by the OneScript Linker into a image for the Macro Virtual Machine. For more information on the OneScript language please refer to the [OneScript Language Overview](docs/OneScript.md).
+For more information on the OneScript language please refer to the [OneScript Language Overview](docs/OneScript.md).
 
+
+### Macro
+The OneScript language is compiled into an object library that is based on a language called Macro that can be translated by the OneScript Linker into a image for the Macro Virtual Machine. 
 The Macro Virtual Machine based on a combination of the Java Virtual Machine and the Digital/PDP 11 Virtual Machine. It provides a combination instruction processing with operand specification on a stack based machine.
 
 In order to help with the testing of the OneScript model the [Macro Language](docs/Macro.md) is also provided used to generate object for the Linker that are more directly associated with the Macro Virtual Machine.
