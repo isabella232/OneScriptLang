@@ -21,6 +21,7 @@ Instructions are usually structured in the following way:
 
 ### Type
 The type can be one of the followings:
+
 Type | Description
 ---- | -----------
 b | boolean
@@ -32,6 +33,7 @@ s | string
 
 ### Action
 The action can be one of the following:
+
 Action | Description
 ------ | -----------
 load | Load a value onto the stack
@@ -49,7 +51,7 @@ icvtb
 ```
 It is possible to convert types based on the table:
 
-- | bool (b) | byte(by) | int (i) | date (i) | enum (i) | float (f) | string (s)
+? | bool (b) | byte(by) | int (i) | date (i) | enum (i) | float (f) | string (s)
 - | -------- | -------- | ------- | -------- | -------- | --------- | ----------
 bool (b) | x | x | | || | x
 byte (by) | x | | x |||| x
@@ -61,6 +63,7 @@ string (s) | x | x | x | x | x | x
 
 ## Conditional Instructions
 It is possible to branch from one location to another based on that value on te top of the stack.
+
 Instruction | Description
 ----------- | -----------
 ifeq | If equal to zero then branch

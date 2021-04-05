@@ -311,16 +311,17 @@ if (a == 0) {
 ### Snapshots
 Snapshots are a particular feature of OneScript that supports the ability to move back and forth in an application by defining a `snapshot` of the application to jump back to later. 
 ```
-    save snapshot "q1";
+    save snapshot "intro";
     q1.Ask();
-    save snapshot "q2";
     q2.Ask();
     if (q2.Response.Value == null) {
-        restore snapshot "q1";
+        restore snapshot "intro";
     }
 ```
 
 A snapshot will hold information about the virtual machine position in the code and the restoration of a snapshot will automatically jump the flow of the application back to the statement directly after the save snapshot statement with the equivalent name.
+
+> Note: The snapshots are automatically generated for questions in the Interview Model and named after the questions full name in the [Interview Model](InterviewModel.md).
 
 
 ## Fields
@@ -349,7 +350,7 @@ For more information on Field please refer to the [Fields Reference](Fields.md)
 Classes are a way of encapsulating methods and properties together. Unlike other languages OneScript classes only have basic capabilities and cannot be inherited or used in polymorphisms.
 ```
     class Shape {
-        public int numberOfSlides = 0;
+        public int numberOfSides = 0;
         public string SimpleDescription() {
             return "A shape with " + numberOfSides + " sides";
         }
@@ -358,4 +359,6 @@ Classes are a way of encapsulating methods and properties together. Unlike other
 An instance of a class can be created in the following way:
 ```
     Shape shape = new Shape();
+    shape.numberofides = 3;
+    shape.SimpleDescription();
 ```

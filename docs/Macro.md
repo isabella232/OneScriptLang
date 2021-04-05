@@ -198,11 +198,32 @@ The code directive is used within the method section to declare the code section
 ```
 For more information on the instructions please [check here](Instructions.md).
 
-#### Operands
+### Operands
 Operands are the parameters for instructions. They can be one of the following:
-* Immediate - denoted by prefixing the hash ('#') to the value and refers to constant value or an expression that can
-result in a constant value.
-* Reference - a reference to a declaration in the Macro source code or an external value to be found in the imported libraries.
+
+#### Immediate
+Denoted by prefixing the hash ('#') to the value and refers to constant value or an expression that can result in a constant value.
+```
+    iload #23
+    addi #50
+```
+The above will push an integer value of 23 onto the stack, add an integer value of 50 to it and push the result onto the stack.
+
+##### Reference
+A reference to a declaration in the Macro source code or an external value to be found in the imported libraries.
+```
+    iload initialValue
+    addi #23
+```
+The above will push the integer value of `initialValue`, add an integer value of 23 to it and push the result onto the stack.
+
+##### Indexed Reference
+A reference to a indexed value with a further integer value pulled off the stack to reference a specific index of the value.
+```
+    iload values[0]
+    addi values[index]
+```
+The above will load the integer value referenced by `values` and indexed by 0, add the integer value referenced by `values` and indexed by `index` and push the result onto the stack.
 
 ## Scope
 Scope refers to whether a declaration (method or table declaration) is local to the table it is within or made available
