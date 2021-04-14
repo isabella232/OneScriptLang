@@ -56,7 +56,7 @@ String constants are unicode with the ability to add encoded values from the fol
 * `\r`
 * `\t`
 
-## Directives
+## Whitespace
 
 Macro programs are defined through the Macro language which is case sensitive. It supports each keyword and associated
 operator can be separated with whitespace. The following can be considered to be whitespace:
@@ -64,6 +64,8 @@ operator can be separated with whitespace. The following can be considered to be
 * `Tab`
 * `//` followed by a comment
 * `/*` with a comment `*/`
+
+## Directives
 
 A Macro program is controlled though a set of directives that are denotes with a full stop ('.'). 
 Directives start an directive area and remain in control until the next directive is encountered.
@@ -83,7 +85,7 @@ Directive | Description
 Program structure is achieved using directives. A simple application might take the following form:
 
 ```
-.using OneScript.Core
+.import OneScript.Core
 .name Sample
 .table
     string helloWorld
@@ -139,7 +141,7 @@ Type | Description
 ---- | -----------
 `bool`| a boolean value that be either true or false.
 `byte` | an unsigned byte value
-`int` | an unsigned integer value
+`int` | a signed integer value
 `float` | a floating point value
 `date` | a date value
 `string` | a string value
@@ -167,6 +169,7 @@ The assignment value can be any expression that can be calculated at compile tim
 ```
 but not:
 ```
+    int initialValue
     int temp = 1 * initialValue
 ```
 because `initialValue` cannot be calculated.
