@@ -70,6 +70,14 @@ enum Fluid {
 }
 ```
 
+## Whitespace
+
+OneScript programs are defined through the OneScript language which is case sensitive. It supports each keyword and associated operator can be separated with whitespace. The following can be considered to be whitespace:
+* `Space`
+* `Tab`
+* `//` followed by a comment
+* `/*` with a comment `*/`
+
 ### Keywords
 The following keywords are reserved and may not be used as identifiers:
 
