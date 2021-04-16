@@ -82,30 +82,45 @@ OneScript programs are defined through the OneScript language which is case sens
 The following keywords are reserved and may not be used as identifiers:
 
 ```
-audio       bool         break
-byte        case         catch       
-class       continue     date
-default     define       do
-else        enum         enumerator
-false       fields       fix
-float       for          foreach
-global      goto         helperfields
-if          in           int
-is          new          nocasedata
-null        media        object
-page        picture      precision
-private     public       ref
-return      scale        string
-struct      switch       throw
-time        true         try
-typeof      using        while    
-validation  video        void
+audio          bool         break
+byte           case         catch       
+class          continue     date
+default        define       do
+else           enum         enumerator
+false          fields       fix
+float          for          foreach
+global         goto         helperfields
+if             in           int
+initial        is           new
+nocasedata
+null           media        object
+page           picture      precision
+private        public       ref
+return         scale        string
+struct         switch       throw
+time           true         try
+typeof         using        while    
+validation     video        void
 
 THERE ARE MORE...
 ```
 
 ### Basic Data Types
-The following basic data types are built into OneScript 
+The following basic data types are built into OneScript
+
+Type | Description
+---- | -----------
+`bool`| a boolean value that be either true or false.
+`byte` | an unsigned byte value
+`int` | a signed integer value
+`float` | a floating point value
+`date` | a date value
+`string` | a string value
+`enum` | an enum numeric value.
+`enumerator` | 
+`object` | an object
+`void` | used to define the absence of a value (for example a method with no return value)
+
 ### Objects
 `object` refer to instances of classes that cannot be defined by the base types (bool, int, float, date, enum and string).
 
@@ -241,6 +256,24 @@ foreach (Question question in questions) {
 ```
 
 The `break` statement will force the loop to finish and move onto the next statement. The `continue` statement will force the process to jump to the next changer statement continuing the loop.
+
+#### switch Statements
+Switch statements supports any kind of data type and is designed to support testing for for equality of a value against other values:
+
+```
+switch (question.QuestionName) {
+    case "fred":
+        question.Ask();
+        break;
+    case otherQuestion.QuestionName:
+        otherQuestion.Ask();
+        break;
+    default:
+        break;
+}
+```
+
+Like many other languages the break statement will route the logic to the next statement outside of the switch block.
 
 #### goto Statements
 Goto statements rely on a label. They are basic representation of branching to a new statement. The following is an example:
