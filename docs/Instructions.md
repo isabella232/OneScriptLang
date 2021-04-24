@@ -53,12 +53,12 @@ It is possible to convert types based on the table:
 
 ? | bool (b) | byte(by) | int (i) | date (i) | enum (i) | float (f) | string (s)
 - | -------- | -------- | ------- | -------- | -------- | --------- | ----------
-bool (b) | x | x | | || | x
-byte (by) | x | | x |||| x
-int (i) | x | x | | x | x | x | x
-date (d) | | | | | || x
-float (f) | x | x | x | | | | x
-string (s) | x | x | x | x | x | x |
+bool (b) | x | x | . | . | .|  . | x
+byte (by) | x | . | x |. |. |. | x
+int (i) | x | x | . | x | x | x | x
+date (d) | . | . | . | . | . | . | x
+float (f) | x | x | x | . | . | . | x
+string (s) | x | x | x | x | x | x | .
 
 
 ## Conditional Instructions
