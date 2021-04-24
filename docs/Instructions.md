@@ -58,7 +58,7 @@ byte (by) | x | | x |||| x
 int (i) | x | x | | x | x | x | x
 date (d) | | | | | || x
 float (f) | x | x | x | | | | x
-string (s) | x | x | x | x | x | x
+string (s) | x | x | x | x | x | x |
 
 
 ## Conditional Instructions

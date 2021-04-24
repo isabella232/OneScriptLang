@@ -10,11 +10,5 @@ A web environment to allow access to an angular based set of controls to present
 ## Command Line
 A simple command line to allow access to the OneScript programming language with no access to any field support for display. This would be used as a more 
 
-## 
-
-
-* WWindows for server side surveys and quota analysis. This means it can be run in a pure process or as part of a web service for surveys.
-* iOS for local app surveys
-* Android for app surveys
-
-The Macro Virtual Machine is open source and available for translation over to any platform that support c++.
+## Others
+There is a plan to deliver an app version of the environment to offer the OneScript Virtual Machine and a survey taking experience to plug into any app.
