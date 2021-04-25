@@ -25,6 +25,7 @@ The type can be one of the followings:
 Type | Description
 ---- | -----------
 b | boolean
+by | byte
 d | date/time
 i | integer
 e | enumerator
@@ -53,7 +54,7 @@ It is possible to convert types based on the table:
 
 ? | bool (b) | byte(by) | int (i) | date (i) | enum (i) | float (f) | string (s)
 - | -------- | -------- | ------- | -------- | -------- | --------- | ----------
-bool (b) | x | x | . | . | .|  . | x
+bool (b) | . | x | . | . | .|  . | x
 byte (by) | x | . | x |. |. |. | x
 int (i) | x | x | . | x | x | x | x
 date (d) | . | . | . | . | . | . | x
@@ -141,7 +142,7 @@ x40$:
     // Null exception
     ...
 ```
-The `pushh` instruction pushes a handler onto the handler task. Thew handler stack operates as a cascading exception handler, so if the error is not picked up by the handler on top of the stack the next handler is used.
+The `pushh` instruction pushes a handler onto the handler stack. Thew handler stack operates as a cascading exception handler, so if the error is not picked up by the handler on top of the stack the next handler is used.
 
 The `throw` instruction will cause an exception to be thrown and the handler stack to be accessed for in search for an exception handler that will support the error.
 
@@ -158,4 +159,57 @@ Exception | A general exception and a catchall.
 NullException | A null value was detected.
 DivideByZero | Division by zero detected.
 
+### Accessing External Libraries
+It is possible to access static and dynamic instances of classes and access its methods and properties through a set of instructions.
 
+To create an instance of an object use the `new` instruction:
+
+```
+    ...
+    sload #jsonString
+    new IQuestion(string)
+    store q1
+    ...
+```
+
+To access a method in the object:
+
+```
+   ...
+    sload #jsonString
+    new IQuestion(string)
+    store q1
+    load q1
+    invokeVirtual Ask()
+    ...
+```
+
+To access a property it is possible to access the direct method if it known or the general property:
+
+```
+    ...
+    sload #jsonString
+    new IQuestion(string)
+    store q1
+    load q1
+    invokeVirtual get_Label()
+    ...
+```
+
+Most properties are accessible through a `getter` which is identified by the `get_` prefix. Setting a property is achieved through the `setter` which is identified by the `set_` prefix:
+
+```
+    ...
+    sload #jsonString
+    new IQuestion(string)
+    store q1
+    load q1
+    load label1
+    invokeVirtual set_Label(label)
+    ...
+```
+
+Accessing static classes is also easy with Macro. These do no need to instantiated, but can simply be accessed directly:
+
+```
+```

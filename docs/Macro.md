@@ -140,7 +140,7 @@ The `data-type` can be any one of the following:
 Type | Description
 ---- | -----------
 `bool`| a boolean value that be either true or false.
-`byte` | an unsigned byte value
+`byte` | an signed byte value
 `int` | a signed integer value
 `float` | a floating point value
 `date` | a date value
@@ -215,10 +215,10 @@ The above will push an integer value of 23 onto the stack, add an integer value 
 ##### Reference
 A reference to a declaration in the Macro source code or an external value to be found in the imported libraries.
 ```
-    iload initialValue
+    iload initial
     addi #23
 ```
-The above will push the integer value of `initialValue`, add an integer value of 23 to it and push the result onto the stack.
+The above will push the integer value of `initial`, add an integer value of 23 to it and push the result onto the stack.
 
 ##### Indexed Reference
 A reference to a indexed value with a further integer value pulled off the stack to reference a specific index of the value.

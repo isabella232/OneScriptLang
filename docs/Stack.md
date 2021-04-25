@@ -1,6 +1,6 @@
 # Stack Management
 
-Macro is based on a stack based virtual machine which is key to the way programs ar managed. most instructions push values onto the stack, pop values off the stack and push values back on the stack.
+Macro is based on a stack based virtual machine which is key to the way programs are managed. most instructions push values onto the stack, pop values off the stack and push values back on the stack.
 
 ### Call Frame Stack
 In order to handle methods there is also a call frame stack. This is used to push values onto a stack for the method and pop off for use in the method and return a value back.
