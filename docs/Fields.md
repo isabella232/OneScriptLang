@@ -218,7 +218,7 @@ identifier
 [ <styles and templates> ]
 string
 [ [ range ] ]
-[ <enumerators> ]
+[ <categoricals> ]
 [ <codes> ]
 [ ( initial | default ) (text) ]
 [ fix ]
@@ -227,4 +227,5 @@ string
 [ nocasedata ]
 ```
 
+### 
 

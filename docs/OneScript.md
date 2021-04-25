@@ -84,7 +84,8 @@ The following keywords are reserved and may not be used as identifiers:
 ```
 audio          bool         break
 byte           case         catch       
-class          continue     date
+class          continue     control 
+date
 default        define       do
 else           enum         enumerator
 false          fields       fix
