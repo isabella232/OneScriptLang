@@ -210,6 +210,16 @@ else {
 }
 ```
 
+#### Immediate If Statements
+To save coding time it is possible to place an if statement within a statement:
+
+```
+int a = 0;
+console.WriteLine(a == 0 ? "0" : "1");
+```
+
+If the condition is true then the first part of the immediate if phrase is performed otherwise the second phrase. In the case above, `a` equals `0` so the `"0"` will be chosen.
+
 #### do..while Statements
 Do while statements follow the flow of performing a statement or block while an expression is true.
 For example:
@@ -365,6 +375,65 @@ A snapshot will hold information about the virtual machine position in the code 
 
 > Note: The snapshots are automatically generated for questions in the Interview Model and named after the questions full name in the [Interview Model](InterviewModel.md).
 
+## Operators and Expressions
+OneScript supports a number of operators that can be split into the following groups:
+
+### Arithmetic Operators
+Arithmetic operators can be applied to `byte`, `int` and `float`. All types are signed.
+
+#### Unary Operators
+Unary operators can be applied as prefixes or suffixes.
+
+Name | Description
+---- | -----------
+`++` | Increment operator. Applied as a prefix the value is incremented by 1 before it is used. Applied as a suffix it is incremented by 1after the value is used.
+`--` | Decrement operator. Applied as a prefix the value is decremented by 1 before it is used. Applied as a suffix it is decremented by 1 after the value is used.
+
+#### Binary Operators
+
+Name | Description
+---- | -----------
+`+` | Addition operator can be used to add integers or floating point number
+`-` | Subtraction operator can be used to subtract. If the value is 
+`/` | Division
+`*` | Multiplication
+`%` | Modulus
+
+#### Bitwise Operators
+Logical operators can be applied to `byte` and `int`.
+
+Name | Description
+---- | -----------
+`&` | Bitwise and
+`|` | Bitwise or
+`^` | Bitwise exclusive or
+
+#### Conditional Operators
+Condition operators can be applied to ...
+
+Name | Description
+---- | -----------
+`==` | Equal to
+`!=` | Not equal to
+`>` | Greater than
+`>=` | Greater than or equal to
+`<` | Less than
+`<=` | Less than or equal to
+
+It is also possible to compare a value to `null`
+
+#### is Operator
+The `is` operator can be used to check the type of an object and returns a boolean value to indicate a match:
+
+```
+if (question is IQuestion) {
+    question.Ask();
+}
+```
+
+#### Operator Precedence
+
+
 
 ## Fields
 To make OneScript a researchers language it supports the definition of fields that hold the definitions of questions to be asked and results to be stored for analysis. Fields are declared in a field block:
@@ -401,6 +470,6 @@ Classes are a way of encapsulating methods and properties together. Unlike other
 An instance of a class can be created in the following way:
 ```
     Shape shape = new Shape();
-    shape.numberofides = 3;
+    shape.numberOfSides = 3;
     shape.SimpleDescription();
 ```

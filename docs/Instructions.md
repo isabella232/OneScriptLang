@@ -109,55 +109,19 @@ a20$:
 ### Call and Return
 To support code that you want to repeat it is possible to call a method and return from it.
 
-### Calling External Libraries
-To support external libraries it is possible to support
-
-
-## Stack Management
-Just in case you want to mange the stack independently of the rest of the instructions set you can also use the `pop` instruction to remove items from the stack.
-
-## Error Handling
-It is possible to define error management using the `pushh`, `throw` and `poph` instructions. For examples:
 ```
     ...
-    pushh Exception,x30$ NullException,x40$
-    load questions
-    invokevirtual InitialiseLooping()
-a10$:
-    load questions
-    invokevirtual Next()
-    iffalse a20$
-    load questions
-    invokevirtual GetItem()
-    store question
+    load question
+    call testQuestion(IQuestion)
+    ...
+
+    ...
+.method testQuestion(IQuestion question)
     load question
     invokevirtual Ask()
-    goto a10$
-a20$:
-    ...
-x30$:
-    // general exception
-    ...
-x40$:
-    // Null exception
+    return
     ...
 ```
-The `pushh` instruction pushes a handler onto the handler stack. Thew handler stack operates as a cascading exception handler, so if the error is not picked up by the handler on top of the stack the next handler is used.
-
-The `throw` instruction will cause an exception to be thrown and the handler stack to be accessed for in search for an exception handler that will support the error.
-
-The `poph` instruction will remove the handler off the top of the handler stack.
-
-These three instructions allow the Macro Virtual Machine to mimic most language try, catch type error handlers.
-
-### Exceptions
-It is possible that an instruction itself can cause an exception. If this happens it will trigger access to the handler stack. An exception is based on the following list:
-
-Exception | Description
---------- | -----------
-Exception | A general exception and a catchall.
-NullException | A null value was detected.
-DivideByZero | Division by zero detected.
 
 ### Accessing External Libraries
 It is possible to access static and dynamic instances of classes and access its methods and properties through a set of instructions.
@@ -213,3 +177,49 @@ Accessing static classes is also easy with Macro. These do no need to instantiat
 
 ```
 ```
+
+## Stack Management
+Just in case you want to mange the stack independently of the rest of the instructions set you can also use the `pop` instruction to remove items from the stack.
+
+## Error Handling
+It is possible to define error management using the `pushh`, `throw` and `poph` instructions. For examples:
+```
+    ...
+    pushh Exception,x30$ NullException,x40$
+    load questions
+    invokevirtual InitialiseLooping()
+a10$:
+    load questions
+    invokevirtual Next()
+    iffalse a20$
+    load questions
+    invokevirtual GetItem()
+    store question
+    load question
+    invokevirtual Ask()
+    goto a10$
+a20$:
+    ...
+x30$:
+    // general exception
+    ...
+x40$:
+    // Null exception
+    ...
+```
+The `pushh` instruction pushes a handler onto the handler stack. Thew handler stack operates as a cascading exception handler, so if the error is not picked up by the handler on top of the stack the next handler is used.
+
+The `throw` instruction will cause an exception to be thrown and the handler stack to be accessed for in search for an exception handler that will support the error.
+
+The `poph` instruction will remove the handler off the top of the handler stack.
+
+These three instructions allow the Macro Virtual Machine to mimic most language try, catch type error handlers.
+
+### Exceptions
+It is possible that an instruction itself can cause an exception. If this happens it will trigger access to the handler stack. An exception is based on the following list:
+
+Exception | Description
+--------- | -----------
+Exception | A general exception and a catchall.
+NullException | A null value was detected.
+DivideByZero | Division by zero detected.
