@@ -432,8 +432,21 @@ if (question is IQuestion) {
 ```
 
 #### Operator Precedence
+The following table shows the operator precedence. This can be overridden with the use of brackets around those parts of the expression that should take precedence.
 
-
+Name | Description
+---- | -----------
+-- ++ ! (type) | unary operators
+`*` / % | Multiplication, division, modulus
+`-` + | Subtraction, addition
+is | is operator
+< > <= >= | Comparison operators
+== != | Comparison operators
+& &#124; ^ | Bitwise operators
+&& | Logical And
+&#124;&#124; | Logical Or
+?? | Null coalescing
+? | Immediate if
 
 ## Fields
 To make OneScript a researchers language it supports the definition of fields that hold the definitions of questions to be asked and results to be stored for analysis. Fields are declared in a field block:
@@ -459,7 +472,7 @@ For more information on Field please refer to the [Fields Reference](Fields.md)
 
 ## Classes
 Classes are a way of encapsulating methods and properties together. Unlike other languages OneScript classes only have basic capabilities and cannot be inherited or used in polymorphisms.
-```
+```wwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
     class Shape {
         public int numberOfSides = 0;
         public string SimpleDescription() {
