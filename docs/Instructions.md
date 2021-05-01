@@ -41,6 +41,44 @@ load | Load a value onto the stack
 store | Store a value in a program location. This could be in a local, or global entry.
 return | Return a frame off the stack returning to the current program counter location.
 
+## Operands
+Operands fall into the following types:
+
+### Immediate Operands
+Immediate operands refer to constants or values that can be assessed at compile time. They are prefixed with a `#`:
+
+```
+    loads #"This is a string"
+    loadby #23
+```
+
+### Registers
+Macro has 12 registers that allow provide an alternative to storing temporary data in a table or on the stack and access to processor status values
+
+Name | Description
+---- | -----------
+r0 - r9 | Registers that can hold any object
+pc (r10) | The program counter of the current instruction
+sp (r11) | The stack pointer for the current stack
+ps (r12) | The processor status
+
+### Processor Status
+The process Status is an integer that indicates the status of the current processor thread. Each bit has a certain function:
+
+Position | Description
+-------- | -----------
+0 | Floating Overflow has occurred in the last instruction
+1 | Divide By Zero has occurred in the last instruction
+2 | (Zero) 
+3 | Null
+4 | Boolean
+
+### Reference
+Reference operands refer to a position in a local table or to an external address.
+
+### Indexed
+Where appropriate it is possible to extend an operand by an index. 
+
 ## Conversion Instructions
 These instructions convert one type to another. They take the form:
 ```
