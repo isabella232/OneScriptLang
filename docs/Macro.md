@@ -12,7 +12,7 @@ For example, `$init` and `OneScript.Core^DateTime`.
 * `numeric` - numeric values can be integers or floating point. 
 * `string` - string values.
 * `date` - date and/or time values.
-* `enumerator` - enumerator value is a special collection of values that can be used with the categorical or multiple choice type questions in a survey.
+* `set` - enumerator value is a special collection of values that can be used with the categorical or multiple choice type questions in a survey.
 
 ### Numeric Constants
 Numerical constants can be in decimal, hexadecimal, binary, octal or float point. These can take the following forms:
@@ -36,8 +36,8 @@ A date value can also hold a time in the following form:
 * `hh:mm`
 * `hh:mm:ss`
 
-### enumerator Constants
-Enumerator constants can be an alpha optionally followed by an alphanumeric separated by a comma and surrounded by braces.
+### set Constants
+Set constants can be an alpha optionally followed by an alphanumeric separated by a comma and surrounded by braces.
 For example:
 * `{a}`
 * `{a1}`
@@ -145,7 +145,7 @@ Type | Description
 `float` | a floating point value
 `date` | a date value
 `string` | a string value
-`enum` | an enumerator value not to be confused with an enum numeric value.
+`set` | a set value
 `object` | an object
 `void` | used to define the absence of a value (for example a method with no return value)
 
@@ -199,7 +199,7 @@ The code directive is used within the method section to declare the code section
     iload temp
     ireturn
 ```
-For more information on the instructions please [check here](Instructions.md).
+For more information on the instructions and operands please [check here](Instructions.md).
 
 ### Operands
 Operands are the parameters for instructions. They can be one of the following:
@@ -227,6 +227,16 @@ A reference to a indexed value with a further integer value pulled off the stack
     addi values[index]
 ```
 The above will load the integer value referenced by `values` and indexed by 0, add the integer value referenced by `values` and indexed by `index` and push the result onto the stack.
+
+#### Registers
+Macro has 12 registers that allow provide an alternative to storing temporary data in a table or on the stack and access to processor status values
+
+Name | Description
+---- | -----------
+r0 - r9 | Registers that can hold any object
+pc (r10) | The program counter of the current instruction
+sp (r11) | The stack pointer for the current stack
+ps (r12) | The processor status
 
 ## Scope
 Scope refers to whether a declaration (method or table declaration) is local to the table it is within or made available

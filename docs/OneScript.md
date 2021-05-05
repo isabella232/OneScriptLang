@@ -17,11 +17,11 @@ For example, `init` and `OneScript.Core.DateTime`.
 * `numeric` - numeric values can be integers or floating point values.
 * `string` - string values.
 * `date` - date and/or time values.
-* `enumerator` - enumerator value is a special collection of values that can be used with the categorical or multiple choice type questions in a survey.
+* `set` - sets are a special collection of values that can be used with the categorical or multiple choice type questions in a survey.
 * `enum` - a value type defined by a set of named constants of the underlying integral numeric type.
 
 ### Numeric Constants
-Numerical constants can be in decimal, hexidecimal, binary, octal or float point. 
+Numerical constants can be in decimal, hexadecimal, binary, octal or float point. 
 These can take the following forms:
 
 Type | Example
@@ -46,8 +46,8 @@ A date value can also hold a time in the following form:
 * `hh:mm`
 * `hh:mm:ss`
 
-### enumerator Constants
-Enumerator constants can be an alpha optionally followed by an alphanumeric separated by a comma and surrounded by braces.
+### set Constants
+Set constants can be an alpha optionally followed by an alphanumeric separated by a comma and surrounded by braces.
 For example:
 * `{a}`
 * `{_1,_2}`
@@ -55,7 +55,7 @@ For example:
 * `{a,b1}`
 * `{abc}`
 
-For more information on Enumerators [check here](Enumerators.md).
+For more information on Sets [check here](Sets.md).
 
 ### enum Constants
 Enum constants (not to be confused with enumerators) are a way to using an identifier to reference a constant value rather that placing the constant value everywhere in the code. For example:
@@ -97,7 +97,8 @@ nocasedata
 null           media        object
 page           picture      precision
 private        public       ref
-return         scale        string
+return         scale        set
+string
 struct         switch       throw
 time           true         try
 typeof         using        while    
@@ -118,7 +119,7 @@ Type | Description
 `date` | a date value
 `string` | a string value
 `enum` | an enum numeric value.
-`enumerator` | 
+`set` | a sets value 
 `object` | an object
 `void` | used to define the absence of a value (for example a method with no return value)
 
@@ -143,7 +144,7 @@ String constants are delimited with a double quote `"`. String constants are uni
 ## Program Structure
 OneScript is a "Light Object Orientated Language". This means it does not support inheritance within its own language, but does support it through the objects it can create from libraries.
 
-Basic statements and declarations in a OneScript program are added to a "Main" class if they are not declared explicitly within a class. The "Main" class is always used as the entry point to a OneScript Virtual Machine program.
+Basic statements and declarations in a OneScript program are added to a "Main" class if they are not declared explicitly within a class. The "Main" class is always used as the entry point to a Macro Virtual Machine program.
 
 ### Declarations
 Basic declarations take the following form:
@@ -393,8 +394,8 @@ Name | Description
 
 Name | Description
 ---- | -----------
-`+` | Addition operator can be used to add integers or floating point number
-`-` | Subtraction operator can be used to subtract. If the value is 
+`+` | Addition operator can be used to add integers or floating point number. It can also be used to concatenate strings and enumerators.
+`-` | Subtraction operator can be used to subtract integers, floating point numbers and enumerators.
 `/` | Division
 `*` | Multiplication
 `%` | Modulus
@@ -430,6 +431,16 @@ if (question is IQuestion) {
     question.Ask();
 }
 ```
+
+#### ?? Operator
+The `??` operator (also known as the null coalescing operator) can be used to check whether a value is `null` and if provide another value to use as the expression result:
+
+```
+if (question.Response.Value ?? "") {
+    question.Ask();
+}
+```
+If the question.Response.Value is equal to `null` then use an empty string as the result.
 
 #### Operator Precedence
 The following table shows the operator precedence. This can be overridden with the use of brackets around those parts of the expression that should take precedence.
