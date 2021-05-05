@@ -28,7 +28,7 @@ b | boolean
 by | byte
 d | date/time
 i | integer
-e | enumerator
+e | set
 f | float
 s | string
 
