@@ -13,7 +13,7 @@ Console.Write("Hello World");
 These general terms refer to all elements of OneScript
 * `ident` - refers to an identity that can be any underscore or alpha, followed by any underscore or alphanumeric.
 For example, `init` and `OneScript.Core.DateTime`.
-* `literal` - a literal can refer to a value of numeric, string, boolean, date or enumerator value.
+* `literal` - a literal can refer to a value of numeric, string, boolean, date or set value.
 * `numeric` - numeric values can be integers or floating point values.
 * `string` - string values.
 * `date` - date and/or time values.
@@ -58,7 +58,7 @@ For example:
 For more information on Sets [check here](Sets.md).
 
 ### enum Constants
-Enum constants (not to be confused with enumerators) are a way to using an identifier to reference a constant value rather that placing the constant value everywhere in the code. For example:
+Enum constants are a way to using an identifier to reference a constant value rather that placing the constant value everywhere in the code. For example:
 
 ```
 enum Fluid {
@@ -85,9 +85,8 @@ The following keywords are reserved and may not be used as identifiers:
 audio          bool         break
 byte           case         catch       
 class          continue     control 
-date
-default        define       do
-else           enum         enumerator
+date           default      define
+do             else         enum
 false          fields       fix
 float          for          foreach
 global         goto         helperfields
@@ -303,12 +302,21 @@ exit:
 ```
 
 #### Methods
-Methods are declared by using parentheses and wa block of statements. For example:
+Methods are declared by using parentheses and a block of statements. For example:
 ```
 string greet(string person, string day) {
     return "Hello" + person + " today is " + day;
 }
 ```
+
+A method will automatically return after the last statement in the block or when a return statement (or throw statement) is performed.
+```
+void greet(string person, string day) {
+    Console.WriteLine("Hello" + person + " today is " + day);
+}
+```
+
+> It is important the return value matches the declaration of the method itself.
 
 #### return Statements
 Return statements are used to exit methods and return to the call include method. When the end of the statements are reached in a method an automatic return is carried out. 
@@ -394,8 +402,8 @@ Name | Description
 
 Name | Description
 ---- | -----------
-`+` | Addition operator can be used to add integers or floating point number. It can also be used to concatenate strings and enumerators.
-`-` | Subtraction operator can be used to subtract integers, floating point numbers and enumerators.
+`+` | Addition operator can be used to add integers or floating point number. It can also be used to concatenate strings and sets.
+`-` | Subtraction operator can be used to subtract integers, floating point numbers and sets.
 `/` | Division
 `*` | Multiplication
 `%` | Modulus
@@ -483,7 +491,7 @@ For more information on Field please refer to the [Fields Reference](Fields.md)
 
 ## Classes
 Classes are a way of encapsulating methods and properties together. Unlike other languages OneScript classes only have basic capabilities and cannot be inherited or used in polymorphisms.
-```wwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+```
     class Shape {
         public int numberOfSides = 0;
         public string SimpleDescription() {
